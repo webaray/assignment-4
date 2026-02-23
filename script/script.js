@@ -116,7 +116,7 @@ function renderFiltered() {
 
 mainContainer.addEventListener("click", function (event) {
 
-  const card = event.target.closest(".left-side");
+  const card = event.target.closest(".job-card");
   if (!card) return;
 
   const jobTitle = card.querySelector(".jobTitle").innerText;
