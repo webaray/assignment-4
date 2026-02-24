@@ -60,6 +60,21 @@ function toggleStyle(id) {
 }
 
 
+// job counts
+
+const jobCountEl = document.getElementById("job-count");
+
+function decreaseJobCount() {
+    let count = parseInt(jobCountEl.innerText);
+
+    if (count > 0) {
+        count--;
+        jobCountEl.innerText = count + " Jobs";
+    }
+}
+
+
+
 // RENDER FILTERED CARDS
 
 
@@ -83,6 +98,8 @@ function renderFiltered() {
     return;
   }
 
+  
+
   list.forEach(job => {
     filterSection.innerHTML += `
        <div class="card-1 left-side py-10 px-5 bg-white mt-4  space-y-2.5 rounded-[8px] flex  justify-between ">
@@ -94,6 +111,7 @@ function renderFiltered() {
                     <p class="jobType text-gray-400">Remote • Full-time • $130,000 - $175,000</p>
         
                     <button class=" status py-2 px-3 bg-[#EEF4FF]  rounded-[4px] mr-2 uppercase font-bold">Not Applied</button>
+                    
                     <p class="jobDelies">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
                     <div class="mt-5">
                         <button class=" interview-btn py-2 px-3 border-2 border-green-500 rounded-[4px] mr-2 uppercase text-green-500 font-bold cursor-pointer">interview</button>
@@ -125,6 +143,9 @@ mainContainer.addEventListener("click", function (event) {
   const jobDelies = card.querySelector(".jobDelies").innerText;
 
   const cardInfo = { jobTitle, jobPosiation, jobType, jobDelies };
+  
+
+  
 
   // INTERVIEW
   if (event.target.classList.contains("interview-btn")) {
